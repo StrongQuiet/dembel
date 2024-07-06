@@ -80,7 +80,7 @@
   transition: 0.4s;
 }
 .click.clicked {
-  transform: scale(1.02);
+  transform: scale(1.06);
 }
 .click:before {
   content: "";

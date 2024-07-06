@@ -14,7 +14,7 @@ const Tap = ({ count, setCount }) => {
     <div className="tap container flex">
       <div
         className={`click ${clicked && "clicked"}`}
-        onClick={() => tap()}
+        onTouchStart={() => tap()}
       ></div>
     </div>
   );

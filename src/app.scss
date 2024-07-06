@@ -88,9 +88,9 @@
   transition: .4s;
 
   &.clicked{
-    transform: scale(1.02);
+    transform: scale(1.06);
   }
-
+  
   &:before{
     content: "";
     position: absolute;
