@@ -39,7 +39,7 @@ const App = () => {
     {
       id: 2,
       img: straps3,
-      counts: 10000,
+      counts: 5000,
     },
     {
       id: 3,
@@ -125,6 +125,7 @@ const App = () => {
 
   const [strap, setStrap] = useState(0);
   const [count, setCount] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (localStorage.getItem("countDembel")) {
@@ -144,12 +145,31 @@ const App = () => {
 
     if (count >= 1500000) {
       setStrap(straps[18].id);
+      setProgress(100);
+    } else {
+      setProgress(
+        ((count - straps[strap].counts) /
+          (straps[strap + 1].counts - straps[strap].counts)) *
+          100
+      );
+
+      if (progress >= 100) {
+        setProgress(0);
+      }
     }
   }, [count]);
 
+  useEffect(() => {
+    setProgress(
+      ((count - straps[strap].counts) /
+        (straps[strap + 1].counts - straps[strap].counts)) *
+        100
+    );
+  }, [strap]);
+
   return (
     <div className="app">
-      <Header count={count} straps={straps} strap={strap} />
+      <Header count={count} straps={straps} strap={strap} progress={progress} />
       <Tap count={count} setCount={setCount} />
     </div>
   );

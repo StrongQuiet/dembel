@@ -1,4 +1,4 @@
-const Header = ({ count, straps, strap }) => {
+const Header = ({ count, straps, strap, progress }) => {
   return (
     <div className="header container flex">
       <div className="header-inner flex">
@@ -10,6 +10,10 @@ const Header = ({ count, straps, strap }) => {
           <h2 className="header__subtitle">Репутация в час</h2>
           <span>0</span>
         </div>
+        <div
+          className="header-progress"
+          style={{ width: progress + "%" }}
+        ></div>
       </div>
       <h1 className="header__title">{count}</h1>
     </div>
