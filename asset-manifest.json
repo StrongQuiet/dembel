@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.76945c32.css",
-    "main.js": "/static/js/main.9e62fd13.js",
-    "static/media/19.png": "/static/media/19.39557edd03e8e85db81c.png",
-    "static/media/18.png": "/static/media/18.95f055297966cb1da84c.png",
-    "static/media/17.png": "/static/media/17.08394f4390b63aa0b41a.png",
-    "static/media/png-klev-club-jreq-p-armiya-png-26.png": "/static/media/png-klev-club-jreq-p-armiya-png-26.d9445b130ccb5ff72509.png",
-    "static/media/16.png": "/static/media/16.e4370450fad03abdb87c.png",
-    "static/media/8.png": "/static/media/8.63d4ed3363796c4028bf.png",
-    "static/media/logo.png": "/static/media/logo.bff67193a047850a0c84.png",
-    "static/media/7.png": "/static/media/7.beb832f3f2ca3bcd21f7.png",
-    "static/media/Outfit-VariableFont_wght.ttf": "/static/media/Outfit-VariableFont_wght.00c2ed1a3bf798b0da27.ttf",
-    "static/media/15.png": "/static/media/15.37355918a3443f4665ed.png",
-    "static/media/14.png": "/static/media/14.b0b83c4962e1be6d4405.png",
-    "static/media/13.png": "/static/media/13.bf6d927150d007002c9b.png",
-    "static/media/12.png": "/static/media/12.4f9e92d3e17bb62fecc6.png",
-    "static/media/11.png": "/static/media/11.687b0c4e27489db2a022.png",
-    "static/media/10.png": "/static/media/10.8b7b4e02471f4b9037fa.png",
-    "static/media/9.png": "/static/media/9.2dfa96e92b566662b2eb.png",
-    "index.html": "/index.html",
-    "main.76945c32.css.map": "/static/css/main.76945c32.css.map",
-    "main.9e62fd13.js.map": "/static/js/main.9e62fd13.js.map"
+    "main.css": "/dembel/static/css/main.2599c09c.css",
+    "main.js": "/dembel/static/js/main.09b68676.js",
+    "static/media/19.png": "/dembel/static/media/19.39557edd03e8e85db81c.png",
+    "static/media/18.png": "/dembel/static/media/18.95f055297966cb1da84c.png",
+    "static/media/17.png": "/dembel/static/media/17.08394f4390b63aa0b41a.png",
+    "static/media/png-klev-club-jreq-p-armiya-png-26.png": "/dembel/static/media/png-klev-club-jreq-p-armiya-png-26.d9445b130ccb5ff72509.png",
+    "static/media/16.png": "/dembel/static/media/16.e4370450fad03abdb87c.png",
+    "static/media/8.png": "/dembel/static/media/8.63d4ed3363796c4028bf.png",
+    "static/media/logo.png": "/dembel/static/media/logo.bff67193a047850a0c84.png",
+    "static/media/7.png": "/dembel/static/media/7.beb832f3f2ca3bcd21f7.png",
+    "static/media/Outfit-VariableFont_wght.ttf": "/dembel/static/media/Outfit-VariableFont_wght.00c2ed1a3bf798b0da27.ttf",
+    "static/media/15.png": "/dembel/static/media/15.37355918a3443f4665ed.png",
+    "static/media/14.png": "/dembel/static/media/14.b0b83c4962e1be6d4405.png",
+    "static/media/13.png": "/dembel/static/media/13.bf6d927150d007002c9b.png",
+    "static/media/12.png": "/dembel/static/media/12.4f9e92d3e17bb62fecc6.png",
+    "static/media/11.png": "/dembel/static/media/11.687b0c4e27489db2a022.png",
+    "static/media/10.png": "/dembel/static/media/10.8b7b4e02471f4b9037fa.png",
+    "static/media/9.png": "/dembel/static/media/9.2dfa96e92b566662b2eb.png",
+    "index.html": "/dembel/index.html",
+    "main.2599c09c.css.map": "/dembel/static/css/main.2599c09c.css.map",
+    "main.09b68676.js.map": "/dembel/static/js/main.09b68676.js.map"
   },
   "entrypoints": [
-    "static/css/main.76945c32.css",
-    "static/js/main.9e62fd13.js"
+    "static/css/main.2599c09c.css",
+    "static/js/main.09b68676.js"
   ]
 }
