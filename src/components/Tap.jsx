@@ -5,8 +5,6 @@ const Tap = ({
   setCount,
   listTaps,
   setListTaps,
-  date,
-  setDate,
   clicked,
   setClicked,
   tap,

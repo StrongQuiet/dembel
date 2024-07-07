@@ -23,112 +23,131 @@ import straps16 from "./assets/img/straps/16.png";
 import straps17 from "./assets/img/straps/17.png";
 import straps18 from "./assets/img/straps/18.png";
 import straps19 from "./assets/img/straps/19.png";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Rating from "./pages/Rating";
 
 const App = () => {
   const straps = [
     {
       id: 0,
+      title: "Рядовой",
       img: straps1,
       counts: 0,
     },
     {
       id: 1,
+      title: "Ефрейтор",
       img: straps2,
       counts: 1000,
     },
     {
       id: 2,
+      title: "Младший сержант",
       img: straps3,
       counts: 5000,
     },
     {
       id: 3,
+      title: "Сержант",
       img: straps4,
       counts: 50000,
     },
     {
       id: 4,
+      title: "Старший сержант",
       img: straps5,
       counts: 100000,
     },
     {
       id: 5,
+      title: "Старшина",
       img: straps6,
       counts: 200000,
     },
     {
       id: 6,
+      title: "Прапорщик",
       img: straps7,
       counts: 300000,
     },
     {
       id: 7,
+      title: "Старший прапорщик",
       img: straps8,
       counts: 400000,
     },
     {
       id: 8,
+      title: "Младший лейтенант",
       img: straps9,
       counts: 500000,
     },
     {
       id: 9,
+      title: "Лейтенант",
       img: straps10,
       counts: 600000,
     },
     {
       id: 10,
+      title: "Старший лейтенант",
       img: straps11,
       counts: 700000,
     },
     {
       id: 11,
+      title: "Капитан",
       img: straps12,
       counts: 800000,
     },
     {
       id: 12,
+      title: "Майор",
       img: straps13,
       counts: 900000,
     },
     {
       id: 13,
+      title: "Подполковник",
       img: straps14,
       counts: 1000000,
     },
     {
       id: 14,
+      title: "Полковник",
       img: straps15,
       counts: 1100000,
     },
     {
       id: 15,
+      title: "Генерал-майор",
       img: straps16,
       counts: 1200000,
     },
     {
       id: 16,
+      title: "Генерал-лейтенант",
       img: straps17,
       counts: 1300000,
     },
     {
       id: 17,
+      title: "Генерал-полковник",
       img: straps18,
       counts: 1400000,
     },
     {
       id: 18,
+      title: "Генерал-армии",
       img: straps19,
       counts: 1500000,
     },
   ];
-  const [listTaps, setListTaps] = useState([]);
 
   const [strap, setStrap] = useState(0);
   const [count, setCount] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [date, setDate] = useState(new Date());
-  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("countDembel")) {
@@ -163,59 +182,35 @@ const App = () => {
   }, [count]);
 
   useEffect(() => {
-    setProgress(
-      ((count - straps[strap].counts) /
-        (straps[strap + 1].counts - straps[strap].counts)) *
-        100
-    );
+    if (strap === 18) {
+      setProgress(100);
+    } else {
+      setProgress(
+        ((count - straps[strap].counts) /
+          (straps[strap + 1].counts - straps[strap].counts)) *
+          100
+      );
+    }
   }, [strap]);
 
-  const deleteSpan = (span) => {
-    setTimeout(() => {
-      span.remove();
-    }, 2000);
-  };
-
-  const tap = (e) => {
-    setCount(() => {
-      localStorage.setItem("countDembel", count + 1);
-      setClicked(!clicked);
-      return count + 1;
-    });
-
-    console.log(e);
-
-    const postNode = document.createElement("span");
-    postNode.innerText = "+1";
-    postNode.classList.add("tap__title");
-
-    postNode.style.cssText = `left: ${e.targetTouches[0].pageX}px; top: ${e.targetTouches[0].pageY}px`;
-
-    // postNode.addEventListener("click", (e) => {
-    //   tap(e);
-    // });
-    containerRef.current.appendChild(postNode);
-
-    deleteSpan(postNode);
-  };
-
-  const containerRef = useRef(null);
   return (
-    <div className="app">
-      <Header count={count} straps={straps} strap={strap} progress={progress} />
-      <Tap
-        count={count}
-        setCount={setCount}
-        listTaps={listTaps}
-        setListTaps={setListTaps}
-        date={date}
-        setDate={setDate}
-        clicked={clicked}
-        setClicked={setClicked}
-        tap={tap}
-      />
-      <div ref={containerRef}></div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/dembel"
+          element={
+            <Home
+              count={count}
+              straps={straps}
+              strap={strap}
+              progress={progress}
+              setCount={setCount}
+            />
+          }
+        />
+        <Route path="/rating" element={<Rating />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
