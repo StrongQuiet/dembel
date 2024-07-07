@@ -55,10 +55,11 @@
   }
 
   &__title{
+    font-size: 42px;
   }
 
   &__subtitle, & span{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
   }
 
@@ -74,6 +75,15 @@
   top: 40px;
   bottom: 0;
   margin: auto;
+
+  &__title{
+    position: absolute;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    transition: 1s;
+    cursor: default;
+  }
 }
 
 .click{
@@ -90,7 +100,7 @@
   &.clicked{
     transform: scale(1.06);
   }
-  
+
   &:before{
     content: "";
     position: absolute;

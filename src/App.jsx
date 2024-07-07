@@ -122,10 +122,12 @@ const App = () => {
       counts: 1500000,
     },
   ];
+  const [listTaps, setListTaps] = useState([]);
 
   const [strap, setStrap] = useState(0);
   const [count, setCount] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
     if (localStorage.getItem("countDembel")) {
@@ -167,10 +169,53 @@ const App = () => {
     );
   }, [strap]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // for (let i = 0; i < listTaps.length; i++) {
+      //   if (listTaps[i].opacity <= 0) {
+      //     setListTaps(listTaps.filter((item) => item.id !== listTaps[i].id));
+      //   } else {
+      //     listTaps[i].opacity -= 0.1;
+      //   }
+
+      //   setDate(new Date());
+      // }
+
+      listTaps.forEach((item, i) => {
+        item.opacity = item.opacity - 0.1;
+
+        setDate(new Date());
+      });
+
+      setListTaps(listTaps.filter((item) => item.opacity > 0));
+
+      return clearInterval(interval);
+    }, 1000);
+  }, [listTaps, date]);
+
   return (
     <div className="app">
       <Header count={count} straps={straps} strap={strap} progress={progress} />
-      <Tap count={count} setCount={setCount} />
+      <Tap
+        count={count}
+        setCount={setCount}
+        listTaps={listTaps}
+        setListTaps={setListTaps}
+        setDate={setDate}
+      />
+      {listTaps.map(
+        (item, index) =>
+          item.opacity >= -3 && (
+            <span
+              className="tap__title"
+              key={index}
+              dataOpacity={item.opacity.toFixed(2)}
+              style={{ left: item.x, top: item.y, opacity: item.opacity }}
+            >
+              + 1
+            </span>
+          )
+      )}
     </div>
   );
 };
