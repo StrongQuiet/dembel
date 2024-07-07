@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./app.css";
 import logo from "./assets/img/logo.png";
 import Tap from "./components/Tap";
@@ -128,6 +128,7 @@ const App = () => {
   const [count, setCount] = useState(0);
   const [progress, setProgress] = useState(0);
   const [date, setDate] = useState(new Date());
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("countDembel")) {
@@ -169,30 +170,36 @@ const App = () => {
     );
   }, [strap]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // for (let i = 0; i < listTaps.length; i++) {
-      //   if (listTaps[i].opacity <= 0) {
-      //     setListTaps(listTaps.filter((item) => item.id !== listTaps[i].id));
-      //   } else {
-      //     listTaps[i].opacity -= 0.1;
-      //   }
+  const deleteSpan = (span) => {
+    setTimeout(() => {
+      span.remove();
+    }, 2000);
+  };
 
-      //   setDate(new Date());
-      // }
+  const tap = (e) => {
+    setCount(() => {
+      localStorage.setItem("countDembel", count + 1);
+      setClicked(!clicked);
+      return count + 1;
+    });
 
-      listTaps.forEach((item, i) => {
-        item.opacity = item.opacity - 0.1;
+    console.log(e);
 
-        setDate(new Date());
-      });
+    const postNode = document.createElement("span");
+    postNode.innerText = "+1";
+    postNode.classList.add("tap__title");
 
-      setListTaps(listTaps.filter((item) => item.opacity > 0));
+    postNode.style.cssText = `left: ${e.targetTouches[0].pageX}px; top: ${e.targetTouches[0].pageY}px`;
 
-      return clearInterval(interval);
-    }, 1000);
-  }, [listTaps, date]);
+    // postNode.addEventListener("click", (e) => {
+    //   tap(e);
+    // });
+    containerRef.current.appendChild(postNode);
 
+    deleteSpan(postNode);
+  };
+
+  const containerRef = useRef(null);
   return (
     <div className="app">
       <Header count={count} straps={straps} strap={strap} progress={progress} />
@@ -201,21 +208,13 @@ const App = () => {
         setCount={setCount}
         listTaps={listTaps}
         setListTaps={setListTaps}
+        date={date}
         setDate={setDate}
+        clicked={clicked}
+        setClicked={setClicked}
+        tap={tap}
       />
-      {listTaps.map(
-        (item, index) =>
-          item.opacity >= -3 && (
-            <span
-              className="tap__title"
-              key={index}
-              dataOpacity={item.opacity.toFixed(2)}
-              style={{ left: item.x, top: item.y, opacity: item.opacity }}
-            >
-              + 1
-            </span>
-          )
-      )}
+      <div ref={containerRef}></div>
     </div>
   );
 };

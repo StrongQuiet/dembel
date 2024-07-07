@@ -1,38 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Tap = ({ count, setCount, listTaps, setListTaps, setDate }) => {
-  const [clicked, setClicked] = useState(false);
-  const tap = (e) => {
-    setCount(() => {
-      localStorage.setItem("countDembel", count + 1);
-      setClicked(!clicked);
-      return count + 1;
-    });
-    console.log(e);
-
-    // setListTaps((listTaps) => [
-    //   ...listTaps,
-    //   {
-    //     id: listTaps.length,
-    //     x: e.targetTouches[0].pageX,
-    //     y: e.targetTouches[0].pageY,
-    //     opacity: 1,
-    //   },
-    // ]);
-
-    listTaps.push({
-      id: Date.now(),
-      x: e.targetTouches[0].pageX,
-      y: e.targetTouches[0].pageY,
-      opacity: 1,
-    });
-  };
-
+const Tap = ({
+  count,
+  setCount,
+  listTaps,
+  setListTaps,
+  date,
+  setDate,
+  clicked,
+  setClicked,
+  tap,
+}) => {
   return (
     <div className="tap container flex">
+      <div className={`tap-circle ${clicked && "clicked"}`}></div>
       <div
-        className={`click ${clicked && "clicked"}`}
-        onTouchStart={(e) => tap(e)}
+        className={`tap-circle-inner`}
+        onTouchStart={(e) => {
+          tap(e);
+        }}
       ></div>
     </div>
   );
