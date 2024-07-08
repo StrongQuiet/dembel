@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import Tap from "../components/Tap";
 import Nav from "../components/Nav";
 
-const Home = ({ count, straps, strap, progress, setCount }) => {
+const Home = ({ count, straps, strap, progress, setCount, innerHeight }) => {
   const [listTaps, setListTaps] = useState([]);
   const [clicked, setClicked] = useState(false);
   const containerRef = useRef(null);
@@ -31,7 +31,7 @@ const Home = ({ count, straps, strap, progress, setCount }) => {
   };
 
   return (
-    <div className="app">
+    <div className="app" style={{ height: innerHeight + "px" }}>
       <div className="home">
         <Header
           count={count}

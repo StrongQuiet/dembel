@@ -150,6 +150,11 @@ const App = () => {
   const [strap, setStrap] = useState(0);
   const [count, setCount] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [innerHeight, setInnerHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    setInnerHeight(window.innerHeight);
+  }, [window.innerHeight]);
 
   useEffect(() => {
     if (localStorage.getItem("countDembel")) {
@@ -212,6 +217,7 @@ const App = () => {
               strap={strap}
               progress={progress}
               setCount={setCount}
+              innerHeight={innerHeight}
             />
           }
         />

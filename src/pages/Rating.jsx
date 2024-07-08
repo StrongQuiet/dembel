@@ -1,5 +1,4 @@
 import Nav from "../components/Nav";
-import Tap from "../components/Tap";
 
 const Rating = () => {
   return (
