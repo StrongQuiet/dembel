@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Header from "../components/Header";
 import Tap from "../components/Tap";
+import Nav from "../components/Nav";
 
 const Home = ({ count, straps, strap, progress, setCount }) => {
   const [listTaps, setListTaps] = useState([]);
@@ -47,6 +48,7 @@ const Home = ({ count, straps, strap, progress, setCount }) => {
           setClicked={setClicked}
           tap={tap}
         />
+        <Nav />
         <div ref={containerRef}></div>
       </div>
     </div>

@@ -179,6 +179,11 @@ const App = () => {
         setProgress(0);
       }
     }
+
+    // setCount(() => {
+    //   localStorage.setItem("countDembel", count + 1);
+    //   return count + 1;
+    // });
   }, [count]);
 
   useEffect(() => {

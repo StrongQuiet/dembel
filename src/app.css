@@ -29,6 +29,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   color: #fff;
   font-size: 32px;
@@ -58,22 +59,36 @@
   color: #fff;
   text-decoration: none;
 }
-.header__title {
-  font-size: 42px;
-}
-.header__subtitle, .header span {
+.header-item__subtitle, .header-item span {
   font-size: 14px;
   font-weight: 400;
 }
+.header__title {
+  font-size: 42px;
+  width: 140px;
+}
+.header__subtitle {
+  font-size: 16px;
+  opacity: 0.75;
+  margin: 10px 0;
+}
 .header__img {
   width: 8%;
+}
+.header .tap-circle {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgb(7, 211, 0);
+}
+.header .tap-circle:before {
+  background-image: none;
 }
 
 .tap {
   position: absolute;
   left: 0;
   right: 0;
-  top: 40px;
+  top: 80px;
   bottom: 0;
   margin: auto;
 }
@@ -116,6 +131,12 @@
   width: 300px;
   height: 300px;
   z-index: 10;
+}
+
+.nav {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 .rating {

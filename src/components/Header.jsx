@@ -6,7 +6,7 @@ const Header = ({ count, straps, strap, progress }) => {
       <div className="header-inner flex">
         <Link to="/rating" className="header-item flex">
           <img className="header__img" src={straps[strap].img} alt="Погоны" />
-          <h2 className="header__subtitle">{straps[strap].title}</h2>
+          <h2 className="header-item__subtitle">{straps[strap].title}</h2>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -18,7 +18,7 @@ const Header = ({ count, straps, strap, progress }) => {
           </svg>
         </Link>
         <div className="header-item flex">
-          <h2 className="header__subtitle">Репутация в час</h2>
+          <h2 className="header-item__subtitle">Репутация в час</h2>
           <span>0</span>
         </div>
         <div
@@ -26,7 +26,11 @@ const Header = ({ count, straps, strap, progress }) => {
           style={{ width: progress + "%" }}
         ></div>
       </div>
-      <h1 className="header__title">{count}</h1>
+      <h2 className="header__subtitle">Ваша репутация:</h2>
+      <div className="header-item flex">
+        <div className={`tap-circle`}></div>
+        <h1 className="header__title">{count}</h1>
+      </div>
     </div>
   );
 };
