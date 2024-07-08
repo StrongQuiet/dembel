@@ -26,6 +26,8 @@ import straps19 from "./assets/img/straps/19.png";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Rating from "./pages/Rating";
+import Boost from "./pages/Boost";
+import Shop from "./pages/Shop";
 
 const App = () => {
   const straps = [
@@ -214,6 +216,8 @@ const App = () => {
           }
         />
         <Route path="/rating" element={<Rating />} />
+        <Route path="/boost" element={<Boost />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
     </BrowserRouter>
   );
