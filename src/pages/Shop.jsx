@@ -1,10 +1,23 @@
 import Nav from "../components/Nav";
+import ShopItem from "../components/ShopItem";
 
-const Shop = () => {
+const Shop = ({ shopItems, userShopItems, innerHeight }) => {
+  const buyShopItem = () => {};
+
   return (
-    <div className="app">
-      <div className="shop">
-        <h2>Магазин</h2>
+    <div className="app" style={{ height: innerHeight + "px" }}>
+      <div className="shop container flex">
+        <h2>Улучшения</h2>
+        <div className="shop-list">
+          {shopItems.map((item, index) => (
+            <ShopItem
+              item={item}
+              key={index}
+              buyShopItem={buyShopItem}
+              userShopItems={userShopItems}
+            />
+          ))}
+        </div>
         <Nav />
       </div>
     </div>

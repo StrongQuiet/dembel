@@ -146,9 +146,73 @@ const App = () => {
       counts: 1500000,
     },
   ];
+  const multiTaps = [
+    {
+      id: 0,
+      price: 500,
+      bonus: 1,
+    },
+    {
+      id: 1,
+      price: 2500,
+      bonus: 2,
+    },
+    {
+      id: 2,
+      price: 5000,
+      bonus: 4,
+    },
+    {
+      id: 3,
+      price: 10000,
+      bonus: 8,
+    },
+    {
+      id: 4,
+      price: 20000,
+      bonus: 16,
+    },
+    {
+      id: 5,
+      price: 0,
+      bonus: 32,
+    },
+  ];
+  const shopItems = [
+    {
+      id: 0,
+      title: "Тапик",
+      info: [
+        {
+          id: 0,
+          price: 1000,
+          bonus: 1,
+        },
+        {
+          id: 1,
+          price: 2500,
+          bonus: 2,
+        },
+        {
+          id: 0,
+          price: 3500,
+          bonus: 3,
+        },
+      ],
+    },
+  ];
+  const [userShopItems, setUserShopItems] = useState([
+    {
+      id: 0,
+      title: "Тапик",
+      lvl: 1,
+    },
+  ]);
 
   const [strap, setStrap] = useState(0);
   const [count, setCount] = useState(0);
+  const [afkSpeed, setAfkSpeed] = useState(0);
+  const [multiTap, setMultiTap] = useState(0);
   const [progress, setProgress] = useState(0);
   const [innerHeight, setInnerHeight] = useState(window.innerHeight);
 
@@ -164,7 +228,26 @@ const App = () => {
     if (localStorage.getItem("strapDembel")) {
       setStrap(parseInt(localStorage.getItem("strapDembel")));
     }
+
+    if (localStorage.getItem("multiTapDembel")) {
+      setMultiTap(parseInt(localStorage.getItem("multiTapDembel")));
+    }
+
+    if (localStorage.getItem("userShopItems")) {
+      setUserShopItems(parseInt(localStorage.getItem("userShopItems")));
+    }
   }, []);
+
+  useEffect(() => {
+    userShopItems.map((item) => {
+      setAfkSpeed(
+        (prev) =>
+          prev +
+          shopItems.find((elem) => elem.title === item.title).info[item.lvl - 1]
+            .bonus
+      );
+    });
+  }, [userShopItems]);
 
   useEffect(() => {
     for (let i = 0; i < straps.length - 1; i++) {
@@ -186,12 +269,19 @@ const App = () => {
         setProgress(0);
       }
     }
-
-    // setCount(() => {
-    //   localStorage.setItem("countDembel", count + 1);
-    //   return count + 1;
-    // });
   }, [count]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((prev) => {
+        localStorage.setItem("countDembel", prev + afkSpeed);
+        console.log(afkSpeed);
+        return prev + afkSpeed;
+      });
+
+      // return clearInterval(interval);
+    }, 1000);
+  }, [afkSpeed]);
 
   useEffect(() => {
     if (strap === 18) {
@@ -205,6 +295,8 @@ const App = () => {
     }
   }, [strap]);
 
+  useEffect(() => {}, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -217,13 +309,47 @@ const App = () => {
               strap={strap}
               progress={progress}
               setCount={setCount}
+              multiTap={multiTap}
+              multiTaps={multiTaps}
               innerHeight={innerHeight}
             />
           }
         />
-        <Route path="/rating" element={<Rating />} />
-        <Route path="/boost" element={<Boost />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route
+          path="/rating"
+          element={
+            <Rating
+              count={count}
+              straps={straps}
+              strap={strap}
+              innerHeight={innerHeight}
+              progress={progress}
+            />
+          }
+        />
+        <Route
+          path="/boost"
+          element={
+            <Boost
+              count={count}
+              setCount={setCount}
+              multiTap={multiTap}
+              setMultiTap={setMultiTap}
+              multiTaps={multiTaps}
+              innerHeight={innerHeight}
+            />
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <Shop
+              shopItems={shopItems}
+              userShopItems={userShopItems}
+              innerHeight={innerHeight}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

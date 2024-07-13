@@ -3,7 +3,16 @@ import Header from "../components/Header";
 import Tap from "../components/Tap";
 import Nav from "../components/Nav";
 
-const Home = ({ count, straps, strap, progress, setCount, innerHeight }) => {
+const Home = ({
+  count,
+  straps,
+  strap,
+  progress,
+  setCount,
+  multiTap,
+  multiTaps,
+  innerHeight,
+}) => {
   const [listTaps, setListTaps] = useState([]);
   const [clicked, setClicked] = useState(false);
   const containerRef = useRef(null);
@@ -15,14 +24,17 @@ const Home = ({ count, straps, strap, progress, setCount, innerHeight }) => {
   };
 
   const tap = (e) => {
-    setCount(() => {
-      localStorage.setItem("countDembel", count + 1);
+    setCount((prev) => {
+      localStorage.setItem(
+        "countDembel",
+        multiTap === 0 ? prev + 1 : prev + multiTaps[multiTap].bonus
+      );
       setClicked(!clicked);
-      return count + 1;
+      return multiTap === 0 ? prev + 1 : prev + multiTaps[multiTap].bonus;
     });
 
     const postNode = document.createElement("span");
-    postNode.innerText = "+1";
+    postNode.innerText = `+${multiTap === 0 ? 1 : multiTaps[multiTap].bonus}`;
     postNode.classList.add("tap__title");
     postNode.style.cssText = `left: ${e.targetTouches[0].pageX}px; top: ${e.targetTouches[0].pageY}px`;
     containerRef.current.appendChild(postNode);
