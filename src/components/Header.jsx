@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = ({ count, straps, strap, progress }) => {
+const Header = ({ count, straps, strap, progress, afkSpeed }) => {
   return (
     <div className="header container flex">
       <div className="header-inner flex">
@@ -19,7 +19,7 @@ const Header = ({ count, straps, strap, progress }) => {
         </Link>
         <div className="header-item flex">
           <h2 className="header-item__subtitle">Репутация в час</h2>
-          <span>0</span>
+          <span>{afkSpeed}</span>
         </div>
         <div
           className="header-progress"

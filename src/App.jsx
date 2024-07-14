@@ -329,6 +329,7 @@ const App = () => {
               strap={strap}
               progress={progress}
               setCount={setCount}
+              afkSpeed={afkSpeed}
               multiTap={multiTap}
               multiTaps={multiTaps}
               innerHeight={innerHeight}

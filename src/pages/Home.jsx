@@ -11,6 +11,7 @@ const Home = ({
   setCount,
   multiTap,
   multiTaps,
+  afkSpeed,
   innerHeight,
 }) => {
   const [listTaps, setListTaps] = useState([]);
@@ -50,6 +51,7 @@ const Home = ({
           straps={straps}
           strap={strap}
           progress={progress}
+          afkSpeed={afkSpeed}
         />
         <Tap
           count={count}
