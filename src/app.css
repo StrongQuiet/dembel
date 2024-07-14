@@ -175,7 +175,7 @@
   color: #fff;
 }
 .rating-slider__img {
-  width: 100px;
+  width: 60px;
 }
 .rating-slider__btn {
   position: absolute;
@@ -255,6 +255,11 @@
   color: #fff;
   padding: 0 20px;
 }
+.shop-list {
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+}
 .shop-item {
   border-radius: 20px;
   border: 2px solid #838383;
@@ -310,4 +315,6 @@
     transform: translateY(-500%);
     opacity: 0;
   }
-}/*# sourceMappingURL=app.css.map */
+}
+
+/*# sourceMappingURL=app.css.map */

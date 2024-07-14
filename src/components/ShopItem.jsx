@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-const ShopItem = ({ item, userShopItems, buyShopItem }) => {
+const ShopItem = ({ count, item, userShopItems, buyShopItem }) => {
   const [itemInner, setItemInner] = useState({
     id: 0,
-    title: "",
+    title: item.title,
     lvl: 0,
   });
 
@@ -11,18 +11,17 @@ const ShopItem = ({ item, userShopItems, buyShopItem }) => {
     const elem = userShopItems.find((elem) => elem.title === item.title);
     if (elem) {
       setItemInner(elem);
-    } else {
     }
-  }, []);
+  }, [userShopItems]);
 
   return (
-    <div className={`shop-item flex`} onClick={() => buyShopItem(item)}>
-      <span className="shop-item__title">{item.title}</span>
+    <div className={`shop-item flex ${itemInner.lvl === 3 && "hidden"} ${item.info[itemInner.lvl === 0 ? 0 : itemInner.lvl - 1].price > count && "hidden"}`} onClick={() => itemInner.lvl !== 3 && buyShopItem(item, itemInner, item.info[itemInner.lvl === 3 ? 0 : itemInner.lvl].price)}>
+      <span className="shop-item__title">{item.title} ({itemInner.lvl})</span>
       <div className="flex">
-        <div className={`shop-circle`}></div>
+        <div className={`tap-circle`}></div>
         <span className="shop-item__price">
-          {itemInner &&
-            item.info[itemInner.lvl === 0 ? 0 : itemInner.lvl - 1].price}
+          {itemInner && itemInner.lvl === 3 ? "0" :
+              item.info[itemInner.lvl === 3 ? 0 : itemInner.lvl].price}
         </span>
       </div>
     </div>

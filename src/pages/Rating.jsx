@@ -37,9 +37,9 @@ const Rating = ({ count, straps, strap, progress, innerHeight }) => {
               onClick={() => incrementActiveStrap()}
               className="rating-slider__btn"
               xmlns="http://www.w3.org/2000/svg"
-              height="128px"
+              height="64px"
               viewBox="0 -960 960 960"
-              width="128px"
+              width="64px"
               fill="#e8eaed"
             >
               <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
@@ -55,9 +55,9 @@ const Rating = ({ count, straps, strap, progress, innerHeight }) => {
               onClick={() => decrementActiveStrap()}
               className="rating-slider__btn"
               xmlns="http://www.w3.org/2000/svg"
-              height="128px"
+              height="64px"
               viewBox="0 -960 960 960"
-              width="128px"
+              width="64px"
               fill="#e8eaed"
             >
               <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />

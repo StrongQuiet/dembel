@@ -28,6 +28,7 @@ import Home from "./pages/Home";
 import Rating from "./pages/Rating";
 import Boost from "./pages/Boost";
 import Shop from "./pages/Shop";
+import {releaseAllKeys} from "@testing-library/user-event/dist/keyboard/keyboardImplementation";
 
 const App = () => {
   const straps = [
@@ -200,14 +201,29 @@ const App = () => {
         },
       ],
     },
-  ];
-  const [userShopItems, setUserShopItems] = useState([
     {
-      id: 0,
-      title: "Тапик",
-      lvl: 1,
+      id: 1,
+      title: "Что-то еще",
+      info: [
+        {
+          id: 0,
+          price: 1000,
+          bonus: 1,
+        },
+        {
+          id: 1,
+          price: 2500,
+          bonus: 2,
+        },
+        {
+          id: 0,
+          price: 3500,
+          bonus: 3,
+        },
+      ],
     },
-  ]);
+  ];
+  const [userShopItems, setUserShopItems] = useState([]);
 
   const [strap, setStrap] = useState(0);
   const [count, setCount] = useState(0);
@@ -234,20 +250,26 @@ const App = () => {
     }
 
     if (localStorage.getItem("userShopItems")) {
-      setUserShopItems(parseInt(localStorage.getItem("userShopItems")));
+      setUserShopItems(JSON.parse(localStorage.getItem("userShopItems")));
+
+      JSON.parse(localStorage.getItem("userShopItems")).map((item) => {
+        setAfkSpeed(
+            (prev) => {
+              let summ = 0
+              let shopItemInfo = shopItems.find((elem) => elem.title === item.title).info
+
+              for(let i = 0; i < item.lvl; i++){
+                summ += shopItemInfo[i].bonus
+              }
+
+              return prev + summ
+              // shopItems.find((elem) => elem.title === item.title).info[item.lvl - 1]
+              //     .bonus
+            }
+        );
+      });
     }
   }, []);
-
-  useEffect(() => {
-    userShopItems.map((item) => {
-      setAfkSpeed(
-        (prev) =>
-          prev +
-          shopItems.find((elem) => elem.title === item.title).info[item.lvl - 1]
-            .bonus
-      );
-    });
-  }, [userShopItems]);
 
   useEffect(() => {
     for (let i = 0; i < straps.length - 1; i++) {
@@ -270,17 +292,15 @@ const App = () => {
       }
     }
   }, [count]);
-
+  const [afkInterval, setAfkInterval] = useState()
   useEffect(() => {
-    const interval = setInterval(() => {
+    setAfkInterval(setInterval(() => {
       setCount((prev) => {
         localStorage.setItem("countDembel", prev + afkSpeed);
-        console.log(afkSpeed);
+
         return prev + afkSpeed;
       });
-
-      // return clearInterval(interval);
-    }, 1000);
+    }, 1000));
   }, [afkSpeed]);
 
   useEffect(() => {
@@ -345,7 +365,12 @@ const App = () => {
           element={
             <Shop
               shopItems={shopItems}
+              count={count}
+              setCount={setCount}
               userShopItems={userShopItems}
+              setAfkSpeed={setAfkSpeed}
+              setUserShopItems={setUserShopItems}
+              akfInterval={setAfkInterval}
               innerHeight={innerHeight}
             />
           }
