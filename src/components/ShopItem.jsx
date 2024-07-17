@@ -15,7 +15,7 @@ const ShopItem = ({ count, item, userShopItems, buyShopItem }) => {
   }, [userShopItems]);
 
   return (
-    <div className={`shop-item flex ${itemInner.lvl === 3 && "hidden"} ${item.info[itemInner.lvl === 0 ? 0 : itemInner.lvl - 1].price > count && "hidden"}`} onClick={() => itemInner.lvl !== 3 && buyShopItem(item, itemInner, item.info[itemInner.lvl === 3 ? 0 : itemInner.lvl].price)}>
+    <div className={`shop-item flex ${itemInner.lvl === 3 && "hidden"} ${item.info[itemInner.lvl === 3 ? 0 : itemInner.lvl].price > count && "hidden"}`} onClick={() => itemInner.lvl !== 3 && buyShopItem(item, itemInner, item.info[itemInner.lvl === 3 ? 0 : itemInner.lvl].price)}>
       <span className="shop-item__title">{item.title} ({itemInner.lvl})</span>
       <div className="flex">
         <div className={`tap-circle`}></div>

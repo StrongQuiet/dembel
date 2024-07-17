@@ -279,6 +279,7 @@ body {
   width: 100%;
   flex-direction: column;
   gap: 20px;
+  overflow-y: scroll;
 }
 .shop-item {
   border-radius: 20px;
