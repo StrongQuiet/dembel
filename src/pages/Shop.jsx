@@ -40,7 +40,7 @@ const Shop = ({ shopItems, count, setCount, userShopItems, setUserShopItems, set
   return (
     <div className="app" style={{ height: innerHeight + "px" }}>
       <div className="shop container flex">
-        <h2>Улучшения</h2>
+        <h2>Магазин</h2>
         <div className="shop-list flex">
           {shopItems.map((item, index) => (
             <ShopItem
