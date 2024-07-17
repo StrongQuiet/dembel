@@ -29,6 +29,7 @@ import Rating from "./pages/Rating";
 import Boost from "./pages/Boost";
 import Shop from "./pages/Shop";
 import {releaseAllKeys} from "@testing-library/user-event/dist/keyboard/keyboardImplementation";
+import Qr from "./pages/Qr";
 
 const App = () => {
   const straps = [
@@ -230,13 +231,21 @@ const App = () => {
   const [afkSpeed, setAfkSpeed] = useState(0);
   const [multiTap, setMultiTap] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [afkInterval, setAfkInterval] = useState();
   const [innerHeight, setInnerHeight] = useState(window.innerHeight);
+  const [device, setDevice] = useState(null)
 
   useEffect(() => {
     setInnerHeight(window.innerHeight);
   }, [window.innerHeight]);
 
   useEffect(() => {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      setDevice("mobile")
+    } else {
+      setDevice("PC")
+    }
+
     if (localStorage.getItem("countDembel")) {
       setCount(parseInt(localStorage.getItem("countDembel")));
     }
@@ -263,8 +272,6 @@ const App = () => {
               }
 
               return prev + summ
-              // shopItems.find((elem) => elem.title === item.title).info[item.lvl - 1]
-              //     .bonus
             }
         );
       });
@@ -292,15 +299,18 @@ const App = () => {
       }
     }
   }, [count]);
-  const [afkInterval, setAfkInterval] = useState()
-  useEffect(() => {
-    setAfkInterval(setInterval(() => {
-      setCount((prev) => {
-        localStorage.setItem("countDembel", prev + afkSpeed);
 
-        return prev + afkSpeed;
-      });
-    }, 1000));
+
+  useEffect(() => {
+    if(device === "mobile"){
+      setAfkInterval(setInterval(() => {
+        setCount((prev) => {
+          localStorage.setItem("countDembel", prev + afkSpeed);
+
+          return prev + afkSpeed;
+        });
+      }, 1000));
+    }
   }, [afkSpeed]);
 
   useEffect(() => {
@@ -318,22 +328,22 @@ const App = () => {
   useEffect(() => {}, []);
 
   return (
-    <BrowserRouter>
+    device === "mobile" ? <BrowserRouter>
       <Routes>
         <Route
           path="/dembel"
           element={
-            <Home
-              count={count}
-              straps={straps}
-              strap={strap}
-              progress={progress}
-              setCount={setCount}
-              afkSpeed={afkSpeed}
-              multiTap={multiTap}
-              multiTaps={multiTaps}
-              innerHeight={innerHeight}
-            />
+             <Home
+            count={count}
+          straps={straps}
+          strap={strap}
+          progress={progress}
+          setCount={setCount}
+          afkSpeed={afkSpeed}
+          multiTap={multiTap}
+          multiTaps={multiTaps}
+          innerHeight={innerHeight}
+        />
           }
         />
         <Route
@@ -377,7 +387,7 @@ const App = () => {
           }
         />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> : <Qr innerHeight={innerHeight}/>
   );
 };
 
