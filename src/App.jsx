@@ -204,7 +204,133 @@ const App = () => {
     },
     {
       id: 1,
-      title: "Что-то еще",
+      title: "Афганка",
+      info: [
+        {
+          id: 0,
+          price: 1000,
+          bonus: 1,
+        },
+        {
+          id: 1,
+          price: 2500,
+          bonus: 2,
+        },
+        {
+          id: 0,
+          price: 3500,
+          bonus: 3,
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "Бегунок",
+      info: [
+        {
+          id: 0,
+          price: 1000,
+          bonus: 1,
+        },
+        {
+          id: 1,
+          price: 2500,
+          bonus: 2,
+        },
+        {
+          id: 0,
+          price: 3500,
+          bonus: 3,
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: "Болтанка",
+      info: [
+        {
+          id: 0,
+          price: 1000,
+          bonus: 1,
+        },
+        {
+          id: 1,
+          price: 2500,
+          bonus: 2,
+        },
+        {
+          id: 0,
+          price: 3500,
+          bonus: 3,
+        },
+      ],
+    },
+    {
+      id: 4,
+      title: "Калаш",
+      info: [
+        {
+          id: 0,
+          price: 1000,
+          bonus: 1,
+        },
+        {
+          id: 1,
+          price: 2500,
+          bonus: 2,
+        },
+        {
+          id: 0,
+          price: 3500,
+          bonus: 3,
+        },
+      ],
+    },
+    {
+      id: 5,
+      title: "Швабра",
+      info: [
+        {
+          id: 0,
+          price: 1000,
+          bonus: 1,
+        },
+        {
+          id: 1,
+          price: 2500,
+          bonus: 2,
+        },
+        {
+          id: 0,
+          price: 3500,
+          bonus: 3,
+        },
+      ],
+    },
+    {
+      id: 6,
+      title: "Парадка",
+      info: [
+        {
+          id: 0,
+          price: 1000,
+          bonus: 1,
+        },
+        {
+          id: 1,
+          price: 2500,
+          bonus: 2,
+        },
+        {
+          id: 0,
+          price: 3500,
+          bonus: 3,
+        },
+      ],
+    },
+    {
+      id: 7,
+      title: "Подменка",
       info: [
         {
           id: 0,

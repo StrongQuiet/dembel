@@ -311,13 +311,15 @@ body{
   flex-direction: column;
   gap: 40px;
   color: #fff;
-  padding: 40px 20px 104px;
+  padding: 40px 0px 124px;
 
   &-list{
     width: 100%;
+    justify-content: flex-start;
     flex-direction: column;
     gap: 20px;
     overflow-y: scroll;
+    padding: 0 20px;
   }
 
   &-item{

@@ -19,7 +19,7 @@ const Header = ({ count, straps, strap, progress, afkSpeed }) => {
         </Link>
         <div className="header-item flex">
           <h2 className="header-item__subtitle">Репутация в час</h2>
-          <span>{afkSpeed}</span>
+          <span>{afkSpeed * 60 * 60}</span>
         </div>
         <div
           className="header-progress"
