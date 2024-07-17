@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dembel/static/css/main.af5a7845.css",
+    "main.css": "/dembel/static/css/main.8bedbe5d.css",
     "main.js": "/dembel/static/js/main.53dddb3b.js",
     "static/media/19.png": "/dembel/static/media/19.39557edd03e8e85db81c.png",
     "static/media/18.png": "/dembel/static/media/18.95f055297966cb1da84c.png",
@@ -19,11 +19,11 @@
     "static/media/10.png": "/dembel/static/media/10.8b7b4e02471f4b9037fa.png",
     "static/media/9.png": "/dembel/static/media/9.2dfa96e92b566662b2eb.png",
     "index.html": "/dembel/index.html",
-    "main.af5a7845.css.map": "/dembel/static/css/main.af5a7845.css.map",
+    "main.8bedbe5d.css.map": "/dembel/static/css/main.8bedbe5d.css.map",
     "main.53dddb3b.js.map": "/dembel/static/js/main.53dddb3b.js.map"
   },
   "entrypoints": [
-    "static/css/main.af5a7845.css",
+    "static/css/main.8bedbe5d.css",
     "static/js/main.53dddb3b.js"
   ]
 }
