@@ -28,7 +28,7 @@ import Home from "./pages/Home";
 import Rating from "./pages/Rating";
 import Boost from "./pages/Boost";
 import Shop from "./pages/Shop";
-import {releaseAllKeys} from "@testing-library/user-event/dist/keyboard/keyboardImplementation";
+import { releaseAllKeys } from "@testing-library/user-event/dist/keyboard/keyboardImplementation";
 import Qr from "./pages/Qr";
 
 const App = () => {
@@ -358,18 +358,49 @@ const App = () => {
   const [multiTap, setMultiTap] = useState(0);
   const [progress, setProgress] = useState(0);
   const [afkInterval, setAfkInterval] = useState();
+  const [oldTime, setOldTime] = useState(null);
   const [innerHeight, setInnerHeight] = useState(window.innerHeight);
-  const [device, setDevice] = useState(null)
+  const [device, setDevice] = useState(null);
+
+  function millisToSeconds(millis) {
+    var seconds = (millis / 1000).toFixed(0);
+    return seconds;
+  }
 
   useEffect(() => {
     setInnerHeight(window.innerHeight);
   }, [window.innerHeight]);
 
   useEffect(() => {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      setDevice("mobile")
+    if (afkSpeed !== 0) {
+      setCount((prev) => {
+        localStorage.setItem(
+          "countDembel",
+          prev + millisToSeconds(Date.now() - oldTime) * afkSpeed
+        );
+
+        return prev + millisToSeconds(Date.now() - oldTime) * afkSpeed;
+      });
+
+      localStorage.setItem("oldTimeDembel", Date.now());
+    }
+  }, [oldTime]);
+
+  useEffect(() => {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      setDevice("mobile");
     } else {
-      setDevice("PC")
+      setDevice("PC");
+    }
+
+    if (localStorage.getItem("oldTimeDembel")) {
+      setOldTime(parseInt(localStorage.getItem("oldTimeDembel")));
+    } else {
+      localStorage.setItem("oldTimeDembel", Date.now());
     }
 
     if (localStorage.getItem("countDembel")) {
@@ -388,18 +419,18 @@ const App = () => {
       setUserShopItems(JSON.parse(localStorage.getItem("userShopItems")));
 
       JSON.parse(localStorage.getItem("userShopItems")).map((item) => {
-        setAfkSpeed(
-            (prev) => {
-              let summ = 0
-              let shopItemInfo = shopItems.find((elem) => elem.title === item.title).info
+        setAfkSpeed((prev) => {
+          let summ = 0;
+          let shopItemInfo = shopItems.find(
+            (elem) => elem.title === item.title
+          ).info;
 
-              for(let i = 0; i < item.lvl; i++){
-                summ += shopItemInfo[i].bonus
-              }
+          for (let i = 0; i < item.lvl; i++) {
+            summ += shopItemInfo[i].bonus;
+          }
 
-              return prev + summ
-            }
-        );
+          return prev + summ;
+        });
       });
     }
   }, []);
@@ -426,16 +457,17 @@ const App = () => {
     }
   }, [count]);
 
-
   useEffect(() => {
-    if(device === "mobile"){
-      setAfkInterval(setInterval(() => {
-        setCount((prev) => {
-          localStorage.setItem("countDembel", prev + afkSpeed);
+    if (device === "mobile") {
+      setAfkInterval(
+        setInterval(() => {
+          setCount((prev) => {
+            localStorage.setItem("countDembel", prev + afkSpeed);
 
-          return prev + afkSpeed;
-        });
-      }, 1000));
+            return prev + afkSpeed;
+          });
+        }, 1000)
+      );
     }
   }, [afkSpeed]);
 
@@ -453,23 +485,23 @@ const App = () => {
 
   useEffect(() => {}, []);
 
-  return (
-    device === "mobile" ? <BrowserRouter>
+  return device === "mobile" ? (
+    <BrowserRouter>
       <Routes>
         <Route
           path="/dembel"
           element={
-             <Home
-            count={count}
-          straps={straps}
-          strap={strap}
-          progress={progress}
-          setCount={setCount}
-          afkSpeed={afkSpeed}
-          multiTap={multiTap}
-          multiTaps={multiTaps}
-          innerHeight={innerHeight}
-        />
+            <Home
+              count={count}
+              straps={straps}
+              strap={strap}
+              progress={progress}
+              setCount={setCount}
+              afkSpeed={afkSpeed}
+              multiTap={multiTap}
+              multiTaps={multiTaps}
+              innerHeight={innerHeight}
+            />
           }
         />
         <Route
@@ -513,7 +545,9 @@ const App = () => {
           }
         />
       </Routes>
-    </BrowserRouter> : <Qr innerHeight={innerHeight}/>
+    </BrowserRouter>
+  ) : (
+    <Qr innerHeight={innerHeight} />
   );
 };
 
