@@ -7,12 +7,14 @@ const Rating = ({ count, straps, strap, progress, innerHeight }) => {
 
   useEffect(() => {
     if (strap === activeStrap) {
-      setStr(`${count} / ${straps[strap + 1].counts}`);
+      if (strap === straps[straps.length - 1].id) {
+        setStr(`${count} / ${straps[strap].counts}`);
+      } else {
+        setStr(`${count} / ${straps[strap + 1].counts}`);
+      }
     } else {
       setStr(`От ${straps[activeStrap].counts}`);
     }
-
-    console.log(strap, activeStrap);
   }, [count, activeStrap, strap]);
 
   useEffect(() => {

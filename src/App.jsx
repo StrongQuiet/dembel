@@ -43,135 +43,135 @@ const App = () => {
       id: 1,
       title: "Ефрейтор",
       img: straps2,
-      counts: 1000,
+      counts: 10000,
     },
     {
       id: 2,
       title: "Младший сержант",
       img: straps3,
-      counts: 5000,
+      counts: 50000,
     },
     {
       id: 3,
       title: "Сержант",
       img: straps4,
-      counts: 50000,
+      counts: 500000,
     },
     {
       id: 4,
       title: "Старший сержант",
       img: straps5,
-      counts: 100000,
+      counts: 1000000,
     },
     {
       id: 5,
       title: "Старшина",
       img: straps6,
-      counts: 200000,
+      counts: 2000000,
     },
     {
       id: 6,
       title: "Прапорщик",
       img: straps7,
-      counts: 300000,
+      counts: 3000000,
     },
     {
       id: 7,
       title: "Старший прапорщик",
       img: straps8,
-      counts: 400000,
+      counts: 4000000,
     },
     {
       id: 8,
       title: "Младший лейтенант",
       img: straps9,
-      counts: 500000,
+      counts: 5000000,
     },
     {
       id: 9,
       title: "Лейтенант",
       img: straps10,
-      counts: 600000,
+      counts: 6000000,
     },
     {
       id: 10,
       title: "Старший лейтенант",
       img: straps11,
-      counts: 700000,
+      counts: 7000000,
     },
     {
       id: 11,
       title: "Капитан",
       img: straps12,
-      counts: 800000,
+      counts: 8000000,
     },
     {
       id: 12,
       title: "Майор",
       img: straps13,
-      counts: 900000,
+      counts: 9000000,
     },
     {
       id: 13,
       title: "Подполковник",
       img: straps14,
-      counts: 1000000,
+      counts: 10000000,
     },
     {
       id: 14,
       title: "Полковник",
       img: straps15,
-      counts: 1100000,
+      counts: 11000000,
     },
     {
       id: 15,
       title: "Генерал-майор",
       img: straps16,
-      counts: 1200000,
+      counts: 12000000,
     },
     {
       id: 16,
       title: "Генерал-лейтенант",
       img: straps17,
-      counts: 1300000,
+      counts: 13000000,
     },
     {
       id: 17,
       title: "Генерал-полковник",
       img: straps18,
-      counts: 1400000,
+      counts: 14000000,
     },
     {
       id: 18,
       title: "Генерал-армии",
       img: straps19,
-      counts: 1500000,
+      counts: 15000000,
     },
   ];
   const multiTaps = [
     {
       id: 0,
-      price: 500,
+      price: 5000,
       bonus: 1,
     },
     {
       id: 1,
-      price: 2500,
+      price: 25000,
       bonus: 2,
     },
     {
       id: 2,
-      price: 5000,
+      price: 50000,
       bonus: 4,
     },
     {
       id: 3,
-      price: 10000,
+      price: 100000,
       bonus: 8,
     },
     {
       id: 4,
-      price: 20000,
+      price: 200000,
       bonus: 16,
     },
     {
@@ -187,17 +187,17 @@ const App = () => {
       info: [
         {
           id: 0,
-          price: 1000,
+          price: 20000,
           bonus: 1,
         },
         {
           id: 1,
-          price: 2500,
+          price: 40000,
           bonus: 2,
         },
         {
           id: 0,
-          price: 3500,
+          price: 60000,
           bonus: 3,
         },
       ],
@@ -208,17 +208,17 @@ const App = () => {
       info: [
         {
           id: 0,
-          price: 1000,
+          price: 20000,
           bonus: 1,
         },
         {
           id: 1,
-          price: 2500,
+          price: 40000,
           bonus: 2,
         },
         {
           id: 0,
-          price: 3500,
+          price: 60000,
           bonus: 3,
         },
       ],
@@ -229,17 +229,17 @@ const App = () => {
       info: [
         {
           id: 0,
-          price: 1000,
+          price: 20000,
           bonus: 1,
         },
         {
           id: 1,
-          price: 2500,
+          price: 40000,
           bonus: 2,
         },
         {
           id: 0,
-          price: 3500,
+          price: 60000,
           bonus: 3,
         },
       ],
@@ -250,17 +250,17 @@ const App = () => {
       info: [
         {
           id: 0,
-          price: 1000,
+          price: 20000,
           bonus: 1,
         },
         {
           id: 1,
-          price: 2500,
+          price: 40000,
           bonus: 2,
         },
         {
           id: 0,
-          price: 3500,
+          price: 60000,
           bonus: 3,
         },
       ],
@@ -271,17 +271,17 @@ const App = () => {
       info: [
         {
           id: 0,
-          price: 1000,
+          price: 20000,
           bonus: 1,
         },
         {
           id: 1,
-          price: 2500,
+          price: 40000,
           bonus: 2,
         },
         {
           id: 0,
-          price: 3500,
+          price: 60000,
           bonus: 3,
         },
       ],
@@ -292,17 +292,17 @@ const App = () => {
       info: [
         {
           id: 0,
-          price: 1000,
+          price: 20000,
           bonus: 1,
         },
         {
           id: 1,
-          price: 2500,
+          price: 40000,
           bonus: 2,
         },
         {
           id: 0,
-          price: 3500,
+          price: 60000,
           bonus: 3,
         },
       ],
@@ -313,17 +313,17 @@ const App = () => {
       info: [
         {
           id: 0,
-          price: 1000,
+          price: 20000,
           bonus: 1,
         },
         {
           id: 1,
-          price: 2500,
+          price: 40000,
           bonus: 2,
         },
         {
           id: 0,
-          price: 3500,
+          price: 60000,
           bonus: 3,
         },
       ],
@@ -334,17 +334,17 @@ const App = () => {
       info: [
         {
           id: 0,
-          price: 1000,
+          price: 20000,
           bonus: 1,
         },
         {
           id: 1,
-          price: 2500,
+          price: 40000,
           bonus: 2,
         },
         {
           id: 0,
-          price: 3500,
+          price: 60000,
           bonus: 3,
         },
       ],
@@ -373,14 +373,26 @@ const App = () => {
 
   useEffect(() => {
     if (afkSpeed !== 0) {
-      setCount((prev) => {
-        localStorage.setItem(
-          "countDembel",
-          prev + millisToSeconds(Date.now() - oldTime) * afkSpeed
-        );
+      if (millisToSeconds(Date.now() - oldTime) >= 10800) {
+        setCount((prev) => {
+          localStorage.setItem("countDembel", prev + 10800 * afkSpeed);
+          console.log("+", 10800 * afkSpeed);
+          return prev + 10800 * afkSpeed;
+        });
 
-        return prev + millisToSeconds(Date.now() - oldTime) * afkSpeed;
-      });
+        console.log("ПРОШЛО 3 ЧАСА");
+      } else {
+        setCount((prev) => {
+          localStorage.setItem(
+            "countDembel",
+            prev + millisToSeconds(Date.now() - oldTime) * afkSpeed
+          );
+          console.log("+", millisToSeconds(Date.now() - oldTime) * afkSpeed);
+          return prev + millisToSeconds(Date.now() - oldTime) * afkSpeed;
+        });
+
+        console.log("3 ЧАСА НЕ ПРОШЛО");
+      }
 
       localStorage.setItem("oldTimeDembel", Date.now());
     }
@@ -437,11 +449,12 @@ const App = () => {
 
   useEffect(() => {
     for (let i = 0; i < straps.length - 1; i++) {
-      if (count >= straps[i].counts && count < straps[i + 1].counts)
+      if (count >= straps[i].counts && count < straps[i + 1].counts) {
         setStrap(straps[i].id);
+      }
     }
 
-    if (count >= 1500000) {
+    if (count >= straps[straps.length - 1].counts) {
       setStrap(straps[18].id);
       setProgress(100);
     } else {
